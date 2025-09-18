@@ -8,7 +8,8 @@ export const pictures = [
     resolution: "1920x1080",
     size: "342 KB",
     format: "JPEG",
-        imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
+    imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+    movieUrl: "https://www.youtube.com"
 
   },
   {
@@ -19,7 +20,8 @@ export const pictures = [
     resolution: "1600x900",
     size: "289 KB",
     format: "PNG",
-        imageUrl: "https://images.unsplash.com/photo-1464822759844-d150baec28d5?w=400&h=300&fit=crop"
+    imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=300&fit=crop",
+     movieUrl: "https://www.youtube.com"
 
   },
   {
@@ -30,7 +32,8 @@ export const pictures = [
     resolution: "2048x1536",
     size: "456 KB",
     format: "JPEG",
-        imageUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop",
+         movieUrl: "https://www.youtube.com"
 
 
   },
@@ -42,7 +45,8 @@ export const pictures = [
     resolution: "1440x900",
     size: "198 KB",
     format: "WEBP",
-        imageUrl: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1f?w=400&h=300&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=400&h=300&fit=crop",
+         movieUrl: "https://www.youtube.com"
 
 
   },
@@ -54,7 +58,8 @@ export const pictures = [
     resolution: "1920x1200",
     size: "367 KB",
     format: "JPEG",
-        imageUrl: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400&h=300&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400&h=300&fit=crop",
+         movieUrl: "https://www.youtube.com"
 
   },
   {
@@ -65,7 +70,8 @@ export const pictures = [
     resolution: "1024x768",
     size: "145 KB",
     format: "PNG",
-        imageUrl: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=400&h=300&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=400&h=300&fit=crop",
+         movieUrl: "https://www.youtube.com"
 
   },
   {
@@ -76,7 +82,8 @@ export const pictures = [
     resolution: "1800x1200",
     size: "423 KB",
     format: "JPEG",
-        imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop",
+         movieUrl: "https://www.youtube.com"
 
   },
   {
@@ -87,7 +94,8 @@ export const pictures = [
     resolution: "1680x1050",
     size: "234 KB",
     format: "RAW",
-        imageUrl: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=400&h=300&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=400&h=300&fit=crop",
+         movieUrl: "https://www.youtube.com"
 
   }
 ];

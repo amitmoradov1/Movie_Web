@@ -58,7 +58,7 @@ const App = () => {
     <div className="app">
       <div className="container">
         <header>
-          <h1> גלריית תמונות מתקדמת</h1>
+          <h1> גלריית סרטים</h1>
           <SearchBar onSearch={handleSearch} />
         </header>
 

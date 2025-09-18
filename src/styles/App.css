@@ -194,29 +194,8 @@ h1 {
   justify-content: center;
 }
 
-.picture-large::before {
-  content: '';
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  background: #ccc;
-  border-radius: 50%;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
-.picture-large::after {
-  content: '';
-  position: absolute;
-  width: 120px;
-  height: 60px;
-  background: #ccc;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-}
+
 
 .picture-title {
   position: absolute;
