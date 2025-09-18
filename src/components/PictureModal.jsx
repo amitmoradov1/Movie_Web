@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 
 const PictureModal = ({ picture, onClose }) => {
-  //const [messages, setMessages] = useState([]);
-  //const socket = useWebSocket();
 
   const handleClose = () => {
     onClose();
@@ -45,10 +43,13 @@ const PictureModal = ({ picture, onClose }) => {
       </div>
        <div className="picture-main">
          
-            <img className="picture-large" src={picture.imageUrl} alt={picture.name}  />  
-                  <a href={picture.movieUrl} target="_blank" rel="noopener noreferrer">
-        לצפייה בסרט
-      </a>
+      <img
+          className="picture-large"
+          src={picture.imageUrl}
+          alt={picture.name}
+          style={{ cursor: "pointer" }}
+          onClick={() => window.open(picture.movieUrl, "_blank", "noopener,noreferrer")}
+        />
          </div>
       
          

@@ -8,6 +8,9 @@ const PictureCard = ({ picture, onClick }) => {
         <div className="card-title">{picture.name}</div>
         <div className="card-artist">{picture.artist}</div>
         <div className="card-description">{picture.description}</div>
+         <a href={picture.movieUrl} target="_blank" rel="noopener noreferrer">
+        לצפייה בסרט
+      </a>
       </div>
     </div>
   );
