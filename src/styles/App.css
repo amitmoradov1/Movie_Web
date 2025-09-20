@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #462ba2 100%);
+  background: linear-gradient(135deg, #0d0d0d 0%, #050505 100%);
   min-height: 100vh;
   color: #333;
   direction: rtl;
@@ -19,7 +19,7 @@ body {
 }
 
 header {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(248, 0, 0, 0);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 20px;
@@ -88,7 +88,7 @@ h1 {
 
 .picture-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  box-shadow: 0px 25px 50px #ff2d2d;
 }
 
 .picture-placeholder {

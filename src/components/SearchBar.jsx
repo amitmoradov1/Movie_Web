@@ -9,7 +9,7 @@ const SearchBar = ({ onSearch }) => {
       <input 
         type="text" 
         className="search-box" 
-        placeholder="חפש סרט לפי שם או אומן..."
+        placeholder="חפש סרט לפי שם או ג'אנר..."
         value={searchTerm}
         onChange={(e) => {
           setSearchTerm(e.target.value);

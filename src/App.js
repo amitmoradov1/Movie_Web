@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import Gallery from './components/Gallery';
-import PictureModal from './components/MovieModal';
-import { pictures } from './data/Movies';
+import MovieModal from './components/MovieModal';
+import { movies } from './data/Movies';
 import './styles/App.css';
 
 const App = () => {
@@ -11,25 +11,25 @@ const App = () => {
 
 
   useEffect(() => {
-  setFilteredPictures(pictures);
+  setFilteredPictures(movies);
 }, []);
 
 
   const handleSearch = (searchTerm) => {
     const term = searchTerm.toLowerCase().trim();
     if (term === '') {
-      setFilteredPictures(pictures);
+      setFilteredPictures(movies);
     } else {
-      const filtered = pictures.filter(picture => 
-        picture.name.toLowerCase().includes(term) || 
-        picture.artist.toLowerCase().includes(term)
+      const filtered = movies.filter(movies => 
+        movies.title.toLowerCase().includes(term) || 
+        movies.genre.toLowerCase().includes(term)
       );
       setFilteredPictures(filtered);
     }
   };
 
-  const handlePictureClick = (picture) => {
-    setSelectedPicture(picture);
+  const handlePictureClick = (movies) => {
+    setSelectedPicture(movies);
   };
 
   const handleCloseModal = () => {
@@ -47,14 +47,14 @@ const App = () => {
        
           <Gallery 
           //filter the pictures based on search
-            pictures={filteredPictures} 
+            movie={filteredPictures} 
             onPictureClick={handlePictureClick}
           />
       
       </div>
 
-      <PictureModal 
-        picture={selectedPicture} 
+      <MovieModal 
+        movie={selectedPicture} 
         onClose={handleCloseModal}
       />
     </div>

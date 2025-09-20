@@ -1,102 +1,74 @@
-
-export const pictures = [
+export const movies = [
   {
     id: 1,
-    name: "Red Sunset",
-    artist: "John Artist",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis, nibh vel euismod cursus, lacus ex tempor lacus, vel faucibus neque est et massa.",
-    resolution: "1920x1080",
-    size: "342 KB",
-    format: "JPEG",
-    imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
-    movieUrl: "https://www.youtube.com"
-
+    title: "Harry Potter and the Sorcerer's Stone",
+    year: 2001,
+    genre: "Fantasy",
+    description: "Harry Potter discovers on his 11th birthday that he is a wizard and begins his magical journey at Hogwarts.",
+    imageUrl: "https://m.media-amazon.com/images/I/81YOuOGFCJL._AC_SY679_.jpg",
+    movieUrl: "https://www.youtube.com/watch?v=VyHV0BRtdxo"
   },
   {
     id: 2,
-    name: "Blue Ocean",
-    artist: "Jane Painter",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.",
-    resolution: "1600x900",
-    size: "289 KB",
-    format: "PNG",
-    imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=300&fit=crop",
-     movieUrl: "https://www.youtube.com"
-
+    title: "The Matrix",
+    year: 1999,
+    genre: "Sci-Fi",
+    description: "A computer hacker learns about the true nature of his reality and his role in the war against its controllers.",
+    imageUrl: "https://m.media-amazon.com/images/I/51vpnbwFHrL._AC_.jpg",
+    movieUrl: "https://www.youtube.com/watch?v=vKQi3bBA1y8"
   },
   {
     id: 3,
-    name: "Green Forest",
-    artist: "Bob Nature",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    resolution: "2048x1536",
-    size: "456 KB",
-    format: "JPEG",
-        imageUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop",
-         movieUrl: "https://www.youtube.com"
-
-
+    title: "Inception",
+    year: 2010,
+    genre: "Sci-Fi/Thriller",
+    description: "A skilled thief leads a team into people's dreams to steal secrets and implant new ideas.",
+    imageUrl: "https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg",
+    movieUrl: "https://www.youtube.com/watch?v=YoHD9XEInc0"
   },
   {
     id: 4,
-    name: "Purple Mountains",
-    artist: "Alice Vista",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-    resolution: "1440x900",
-    size: "198 KB",
-    format: "WEBP",
-        imageUrl: "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=400&h=300&fit=crop",
-         movieUrl: "https://www.youtube.com"
-
-
+    title: "Interstellar",
+    year: 2014,
+    genre: "Sci-Fi/Drama",
+    description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    imageUrl: "https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg",
+    movieUrl: "https://www.youtube.com/watch?v=zSWdZVtXT7E"
   },
   {
     id: 5,
-    name: "Golden Fields",
-    artist: "Mike Landscape",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
-    resolution: "1920x1200",
-    size: "367 KB",
-    format: "JPEG",
-        imageUrl: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400&h=300&fit=crop",
-         movieUrl: "https://www.youtube.com"
-
+    title: "The Dark Knight",
+    year: 2008,
+    genre: "Action/Crime",
+    description: "Batman faces the Joker, a criminal mastermind who plunges Gotham City into chaos.",
+    imageUrl: "https://m.media-amazon.com/images/I/51zUbui+gbL._AC_.jpg",
+    movieUrl: "https://www.youtube.com/watch?v=EXeTwQWrcwY"
   },
   {
     id: 6,
-    name: "Silver Moon",
-    artist: "Sarah Night",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
-    resolution: "1024x768",
-    size: "145 KB",
-    format: "PNG",
-        imageUrl: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=400&h=300&fit=crop",
-         movieUrl: "https://www.youtube.com"
-
+    title: "Avengers: Endgame",
+    year: 2019,
+    genre: "Action/Adventure",
+    description: "The Avengers assemble once more to undo the damage caused by Thanos and restore balance to the universe.",
+    imageUrl: "https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SY679_.jpg",
+    movieUrl: "https://www.youtube.com/watch?v=TcMBFSGVi1c"
   },
   {
     id: 7,
-    name: "Orange Autumn",
-    artist: "Tom Season",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
-    resolution: "1800x1200",
-    size: "423 KB",
-    format: "JPEG",
-        imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop",
-         movieUrl: "https://www.youtube.com"
-
+    title: "Spider-Man: No Way Home",
+    year: 2021,
+    genre: "Action/Fantasy",
+    description: "Peter Parker's life is turned upside down after his identity as Spider-Man is revealed to the world.",
+    imageUrl: "https://m.media-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg",
+    movieUrl: "https://www.youtube.com/watch?v=JfVOs4VSpmA"
   },
   {
     id: 8,
-    name: "White Clouds",
-    artist: "Emma Sky",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
-    resolution: "1680x1050",
-    size: "234 KB",
-    format: "RAW",
-        imageUrl: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=400&h=300&fit=crop",
-         movieUrl: "https://www.youtube.com"
-
+    title: "Frozen",
+    year: 2013,
+    genre: "Animation/Family",
+    description: "Anna sets out on a journey with Kristoff and Olaf to find her sister Elsa, whose powers have trapped Arendelle in eternal winter.",
+    imageUrl: "https://m.media-amazon.com/images/I/81bC+Fz3HkL._AC_SY679_.jpg",
+    movieUrl: "https://www.youtube.com/watch?v=TbQm5doF_Uc"
   }
 ];
-

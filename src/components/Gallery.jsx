@@ -1,8 +1,8 @@
 import React from 'react';
-import PictureCard from './MovieCard';
+import MovieCard from './MovieCard';
 
-const Gallery = ({ pictures, onPictureClick }) => {
-  if (pictures.length === 0) {
+const Gallery = ({ movie, onPictureClick }) => {
+  if (movie.length === 0) {
     return (
       <div className="no-results">
         לא נמצאו תוצאות התואמות לחיפוש שלך
@@ -12,10 +12,10 @@ const Gallery = ({ pictures, onPictureClick }) => {
 
   return (
     <div className="gallery">
-      {pictures.map(picture => (
-        <PictureCard 
-          key={picture.id} 
-          picture={picture} 
+      {movie.map(movie => (
+        <MovieCard 
+          key={movie.id} 
+          movie={movie} 
           onClick={onPictureClick}
         />
       ))}

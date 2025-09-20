@@ -1,18 +1,18 @@
 import React from 'react';
 import Detail from './DetailMovie';
 
-const PictureCard = ({ picture, onClick }) => {
+const MovieCard = ({ movie, onClick }) => {
   return (
-    <div className="picture-card" onClick={() => onClick(picture)}>
-       <img className="picture-large" src={picture.imageUrl} alt={picture.name}  />  
+    <div className="picture-card" onClick={() => onClick(movie)}>
+       <img className="picture-large" src={movie.imageUrl} alt={movie.name}  />  
       <div className="card-content">
-        <Detail style="card-title" picture={picture.name}/>
+        <Detail style="card-title" movie={movie.title}/>
         {/* <div className="card-title">{picture.name}</div> */}
-          <Detail style="card-artist" picture={picture.artist}/>
+          <Detail style="card-artist" movie={movie.genre}/>
         {/* <div className="card-artist">{picture.artist}</div> */}
-          <Detail style="card-description" picture={picture.description}/>
+          <Detail style="card-description" movie={movie.description}/>
         {/* <div className="card-description">{picture.description}</div> */}
-         <a href={picture.movieUrl} target="_blank" rel="noopener noreferrer">
+         <a href={movie.movieUrl} target="_blank" rel="noopener noreferrer">
         לצפייה בסרט
       </a>
       </div>
@@ -20,4 +20,4 @@ const PictureCard = ({ picture, onClick }) => {
   );
 };
 
-export default PictureCard;
+export default MovieCard;

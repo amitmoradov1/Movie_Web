@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
+import { movies } from '../data/Movies';
 
 
-const PictureModal = ({ picture, onClose }) => {
+const MovieModal = ({ movie, onClose }) => {
 
   const handleClose = () => {
     onClose();
@@ -20,7 +21,7 @@ const PictureModal = ({ picture, onClose }) => {
       }
     };
 
-    if (picture) {
+    if (movie) {
       document.addEventListener('keydown', handleEscape);
       document.body.style.overflow = 'hidden';
     }
@@ -29,10 +30,10 @@ const PictureModal = ({ picture, onClose }) => {
       document.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = 'auto';
       };
- }, [picture]);
+ }, [movie]);
 
 
- if (!picture) return null;
+ if (!movie) return null;
 
  return (
    <div className="picture-view">
@@ -45,19 +46,19 @@ const PictureModal = ({ picture, onClose }) => {
          
       <img
           className="picture-large"
-          src={picture.imageUrl}
-          alt={picture.name}
+          src={movie.imageUrl}
+          alt={movie.title}
           style={{ cursor: "pointer" }}
-          onClick={() => window.open(picture.movieUrl, "_blank", "noopener,noreferrer")}
+          onClick={() => window.open(movie.movieUrl, "_blank", "noopener,noreferrer")}
         />
          </div>
       
          
            <div className="picture-info">
-             <h2>{picture.name}</h2>
+             <h2>{movie.name}</h2>
            </div>    
      </div>
  );
 };
 
-export default PictureModal;
+export default MovieModal;

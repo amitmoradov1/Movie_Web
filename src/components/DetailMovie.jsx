@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Detail(props) {
   return (
-        <div className={props.style}>{props.picture}</div>
+        <div className={props.style}>{props.movie}</div>
   )
 }
