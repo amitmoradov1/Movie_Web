@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import { movies } from '../data/Movies';
+import { IMG_BASE } from '../services/api';
+import Detail from './DetailMovie';
+
 
 
 const MovieModal = ({ movie, onClose }) => {
@@ -46,16 +49,19 @@ const MovieModal = ({ movie, onClose }) => {
          
       <img
           className="picture-large"
-          src={movie.imageUrl}
+          // src={movie.imageUrl}
+        src={movie.poster_path ? IMG_BASE + movie.poster_path : "/default.jpg"}
+
           alt={movie.title}
           style={{ cursor: "pointer" }}
-          onClick={() => window.open(movie.movieUrl, "_blank", "noopener,noreferrer")}
+  onClick={() => window.open(`https://www.themoviedb.org/movie/${movie.id}`, "_blank", "noopener,noreferrer")}
         />
          </div>
       
          
            <div className="picture-info">
              <h2>{movie.name}</h2>
+             <Detail style="card-description" movie={movie.overview}/>
            </div>    
      </div>
  );
