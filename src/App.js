@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import Gallery from './components/Gallery';
-import MovieModal from './components/MovieModal';
-import { movies } from './data/Movies';
+import MovieModal from './pages/MovieModal';
+//import { movies } from './data/Movies';
 import './styles/App.css';
 import { fetchPopular } from './services/api';
+import Loggin from './pages/Loggin';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import Signup from './pages/Signup';
 
 const App = () => {
   const [filteredPictures, setFilteredPictures] = useState([]);
   const [selectedPicture, setSelectedPicture] = useState(null);
 
-const [allMovies, setAllMovies] = useState([]);
+  // states for login
+  const [isShowingMovie, setIsShowingMovie] = useState(false);
+  const [isShowingLogin, setIsShowingLogin] = useState(true);
+
+  const navigate = useNavigate();
+
+  const [allMovies, setAllMovies] = useState([]);
 
 useEffect(() => {
   async function loadMovies() {
@@ -49,34 +58,63 @@ useEffect(() => {
 
   const handlePictureClick = (movies) => {
     setSelectedPicture(movies);
+    navigate('/gallery/movieModel');
+
   };
 
   const handleCloseModal = () => {
     setSelectedPicture(null);
+
   };
 
+  //for login
+  const showing = {isShowingMovie, isShowingLogin, setIsShowingMovie, setIsShowingLogin};
   return (
+    <Routes>
+      <Route path="/" element={
     <div className="app">
       <div className="container">
+        {isShowingLogin && <Loggin show={showing} /> }
+    </div>
+     </div>
+   }/>
+
+    <Route path="/signup" element={<div>
+      <Signup />
+    </div>} />
+
+   <Route path="/gallery" element={
+    <div className="app">
+      <div className="container">
+        {isShowingMovie &&
         <header>
           <h1>גלריית סרטים</h1>
           <SearchBar onSearch={handleSearch} />
-        </header>
-
+        </header>}
        
-          <Gallery 
+          {isShowingMovie && <Gallery 
           //filter the pictures based on search
             movie={filteredPictures} 
             onPictureClick={handlePictureClick}
-          />
-      
+          />}
       </div>
-
-      <MovieModal 
+      </div>}/>
+   
+   
+      
+      <Route path="/gallery/movieModel" element={ 
+         <div className="app">
+      <div className="container">
+        <MovieModal 
         movie={selectedPicture} 
         onClose={handleCloseModal}
       />
-    </div>
+        
+     </div>
+     </div>
+      }/>
+      </Routes>
+
   );
 };
 

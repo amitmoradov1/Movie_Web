@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react';
 import { movies } from '../data/Movies';
 import { IMG_BASE } from '../services/api';
-import Detail from './DetailMovie';
-
+import Detail from '../components/DetailMovie';
+import { useNavigate } from 'react-router-dom';
 
 
 const MovieModal = ({ movie, onClose }) => {
 
+  const navigate = useNavigate();
+
   const handleClose = () => {
     onClose();
+    navigate('/gallery');
   };
 
   const handleBackdropClick = (e) => {

@@ -136,6 +136,7 @@ h1 {
   font-weight: bold;
   margin-bottom: 8px;
   color: #333;
+  text-align: center;
 }
 
 .card-artist {
@@ -224,8 +225,13 @@ h1 {
 
 .info-label {
   font-weight: bold;
-  color: #666;
-  margin-left: 8px;
+  color: #070606;
+  margin-left: 10px;
+  border-radius: 4px;
+   text-align: left;
+  align-items: center;
+  
+  
 }
 
 .chat-messages {
@@ -304,12 +310,52 @@ h1 {
 .no-results {
   text-align: center;
   color: white;
-  font-size: 1.2em;
+  font-size: 1.0em;
   margin-top: 50px;
   padding: 30px;
   background: rgba(255,255,255,0.1);
   border-radius: 15px;
 }
+
+
+.login-btn {
+  background: linear-gradient(135deg, #e8a839, #e1992e);
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-btn:hover {
+  background: linear-gradient(135deg, #cc0f0f, #851251);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.login-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  background: rgba(120, 42, 42, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 15px 32px rgba(31, 38, 135, 0.37);
+}
+
 
 @media (max-width: 768px) {
   .gallery {
@@ -329,4 +375,6 @@ h1 {
   .picture-main {
     padding: 20px;
   }
+
+  
 }
