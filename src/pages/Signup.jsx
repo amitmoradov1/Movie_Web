@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/App.css'
 import usersData from '../data/Users.json';
 import { useState } from 'react';
@@ -17,7 +17,7 @@ export default function Signup() {
     const [users,setUsers] = useState(usersData);
 
     const navigate = useNavigate();
-
+    console.log(users);
     const checkDetails = () => {
         const username = usernameRef.current.value;
         const password = passwordRef.current.value;
@@ -32,9 +32,13 @@ export default function Signup() {
             setErrorMessage("The user is exist please change name of user");
             return false;
         }
+
         const newUser = { user: username, password: password };
-        setUsers(prevUsers => [...prevUsers, newUser]);
-        console.log(users);
+        const updatedUsers = [...users, newUser];
+        localStorage.setItem('users', JSON.stringify(updatedUsers));
+        setUsers(updatedUsers);
+        setSuccessMessage("Signup successful!");
+        console.log(updatedUsers);
         return true;
         // try {
         //     const res = await fetch("http://localhost:4000/userData", {
@@ -65,12 +69,11 @@ export default function Signup() {
         setErrorMessage('');
         if(checkDetails())
             navigate('/');
-        
-
     }
+
   return (
     <div className='login-container center'>
-        <h1>Signup Page</h1>
+        <h2 >הרשמה</h2>
         <p>please fill in the details to create an account.</p>
           {/* {successMessage && (
             <div className="mb-6 p-4 bg-green-500/20 border border-green-400/30 rounded-xl text-green-100 text-center">
@@ -90,7 +93,9 @@ export default function Signup() {
         <div>
         <input ref={againPasswordRef} className='info-label' type="password" placeholder="Again password" />
         </div>
-        <button className="login-btn" onClick={() => createUser()}>Signup</button>
+        <button className="login-btn" onClick={() => createUser()}>הרשמה</button>
+        <Link  to="/">חזרה</Link>
+
     </div>
   )
 }

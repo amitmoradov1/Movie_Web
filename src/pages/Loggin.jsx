@@ -27,12 +27,12 @@ export default function Loggin(props) {
 
   return (
     <div className='login-container center'>
-        <h2 className='card-title '>Login</h2>
+        <h2 className='card-title '>התחברות</h2>
         <input className='info-label' type="text" placeholder='Enter name' value={name} onChange={(e) => setName(e.target.value)} />
         <br />
         <input className='info-label' type="password" placeholder='Enter password' value={password} onChange={(e) => setPassword(e.target.value)} />
         <br />
-        <button className="login-btn" onClick={checkLogin}>Login</button>
+        <button className="login-btn" onClick={checkLogin}>כניסה</button>
 
         <div className="mt-8 text-center">
               <p className="text-white/60 text-sm">
