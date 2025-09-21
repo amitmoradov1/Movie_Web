@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { movies } from '../data/Movies';
+//import { movies } from '../data/Movies';
 import { IMG_BASE } from '../services/api';
 import Detail from '../components/DetailMovie';
 import { useNavigate } from 'react-router-dom';

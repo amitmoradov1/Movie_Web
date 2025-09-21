@@ -8,7 +8,7 @@ import { fetchPopular } from './services/api';
 import Loggin from './pages/Loggin';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Signup from './pages/Signup';
-import Avater from './components/Avater';
+//import Avater from './components/Avater';
 
 const App = () => {
   const [filteredPictures, setFilteredPictures] = useState([]);
