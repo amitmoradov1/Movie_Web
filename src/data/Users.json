@@ -1,7 +1,9 @@
 [
     {"user":"moami", "password":"1234"},
     
-    {"user":"admin", "password":"admin"}
+    {"user":"admin", "password":"admin"},
+    
+    {"user":"amit", "password":"1234"}
 
 
 ]

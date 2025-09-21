@@ -5,7 +5,7 @@ export const IMG_BASE = "https://image.tmdb.org/t/p/w500";
 async function http(path, params = {}) {
   const url = new URL(`${BASE_URL}${path}`);
   url.searchParams.set("api_key", API_KEY);
-  // פרמטרים נוספים (query, language וכו')
+
   Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
 
   const res = await fetch(url);
@@ -17,11 +17,11 @@ export function fetchPopular() {
   return http("/movie/popular", { language: "en-US", page: 1 });
 }
 
-export function searchMovies(query) {
-  return http("/search/movie", { query, include_adult: "false", language: "en-US", page: 1 });
-}
+// export function searchMovies(query) {
+//   return http("/search/movie", { query, include_adult: "false", language: "en-US", page: 1 });
+// }
 
-export function fetchMovieDetailsWithVideos(id) {
-  // append_to_response=videos מחזיר גם טריילרים (בד"כ YouTube key)
-  return http(`/movie/${id}`, { language: "en-US", append_to_response: "videos" });
-}
+// export function fetchMovieDetailsWithVideos(id) {
+//   // append_to_response=videos מחזיר גם טריילרים (בד"כ YouTube key)
+//   return http(`/movie/${id}`, { language: "en-US", append_to_response: "videos" });
+// }

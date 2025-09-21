@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../styles/App.css'
 import { Link,useNavigate } from 'react-router-dom';
-
+import usersData from '../data/Users.json';
 
 export default function Loggin(props) {
 
@@ -11,7 +11,7 @@ export default function Loggin(props) {
     const navigate = useNavigate();
 
     const checkLogin = () => {
-        if (name === 'amit' && password === '1234') {
+        if (usersData.find(u => u.user === name && u.password === password)) {
             alert('Login successful');
             props.show.setIsShowingLogin(false);
            props.show.setIsShowingMovie(true);

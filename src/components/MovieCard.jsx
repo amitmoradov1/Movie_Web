@@ -19,9 +19,6 @@ const MovieCard = ({ movie, onClick }) => {
         {/* <div className="card-artist">{picture.artist}</div> */}
           <Detail style="card-description" movie={movie.overview}/>
         {/* <div className="card-description">{picture.description}</div> */}
-         <a href={movie.movieUrl} target="_blank" rel="noopener noreferrer">
-        לצפייה בסרט
-      </a>
       </div>
     </div>
   );
