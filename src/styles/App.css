@@ -12,6 +12,17 @@ body {
   direction: rtl;
 }
 
+.parent {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.div1 { grid-area: 1 / 2 / 6 / 6; }
+.div2 { grid-area: 1 / 1 / 6 / 2; }
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -151,6 +162,12 @@ h1 {
   line-height: 1.4;
 }
 
+
+
+.position-absolute {
+  position: absolute
+}
+
 .picture-view {
   position: fixed;
   top: 0;
@@ -161,6 +178,9 @@ h1 {
   z-index: 1000;
 }
 
+.d-felx{
+  display: flex;
+}
 .picture-view-content {
   display: flex;
   height: 100%;
