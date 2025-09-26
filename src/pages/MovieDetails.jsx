@@ -5,7 +5,7 @@ import Detail from '../components/DetailMovie';
 import { useNavigate } from 'react-router-dom';
 
 
-const MovieModal = ({ movie, onClose }) => {
+const MovieDetails = ({ movie, onClose }) => {
 
   const navigate = useNavigate();
 
@@ -70,4 +70,4 @@ const MovieModal = ({ movie, onClose }) => {
  );
 };
 
-export default MovieModal;
+export default MovieDetails;

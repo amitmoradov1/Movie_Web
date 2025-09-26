@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
-import Gallery from './components/Gallery';
-import MovieModal from './pages/MovieModal';
+import Gallery from './pages/Gallery';
+import MovieDetails from './pages/MovieDetails';
 //import { movies } from './data/Movies';
 import './styles/App.css';
 import { fetchPopular } from './services/api';
 import Loggin from './pages/Loggin';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Signup from './pages/Signup';
+import Avater from './components/Avater';
+import CastItem from './components/CastItem';
 //import Avater from './components/Avater';
 
 const App = () => {
@@ -106,14 +108,20 @@ useEffect(() => {
       <Route path="/gallery/movieModel" element={ 
          <div className="app">
       <div className="container">
-        <MovieModal 
+        <MovieDetails 
         movie={selectedPicture} 
         onClose={handleCloseModal}
-      />
-        
+      /> 
      </div>
+          {/* <CastItem 
+  image="actor.jpg" 
+  name="ריאן גוסלינג" 
+  character="נהג" 
+  onClick={() => console.log('ריאן גוסלינג')}
+/> */}
      </div>
       }/>
+      
       </Routes>
 
   );

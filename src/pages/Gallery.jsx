@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieCard from './MovieCard';
+import MovieCard from '../components/MovieCard';
 
 const Gallery = ({ movie, onPictureClick }) => {
   if (movie.length === 0) {
