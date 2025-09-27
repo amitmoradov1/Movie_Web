@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import Gallery from './pages/Gallery';
-import MovieDetails from './pages/MovieDetails';
+import MovieModel from './pages/MovieModel';
 //import { movies } from './data/Movies';
 import './styles/App.css';
-import { fetchPopular } from './services/api';
+import { fetchPopular,  fetchTopRatedMovies} from './services/api';
 import Loggin from './pages/Loggin';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Signup from './pages/Signup';
@@ -108,7 +108,7 @@ useEffect(() => {
       <Route path="/gallery/movieModel" element={ 
          <div className="app">
       <div className="container">
-        <MovieDetails 
+        <MovieModel
         movie={selectedPicture} 
         onClose={handleCloseModal}
       /> 

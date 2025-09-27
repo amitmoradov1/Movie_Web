@@ -1,27 +1,30 @@
-/* CastItem Base Styles */
+/* CastItem Base Styles - Dark Theme */
 .cast-item {
-  background-color: #1a1a1a;
-  border-radius: 8px;
+  background-color: #000000;
+  border: 1px solid #333333;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  width: 160px;
+  width: 140px;
   flex-shrink: 0;
+  margin-right: 15px;
 }
 
 .cast-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-  background-color: #2a2a2a;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+  background-color: #111111;
+  border-color: #555555;
 }
 
 /* תמונת השחקן */
 .cast-image {
   width: 100%;
-  aspect-ratio: 3/4;
+  height: 160px;
   overflow: hidden;
-  background-color: #333;
+  background-color: #222222;
   position: relative;
 }
 
@@ -33,122 +36,177 @@
 }
 
 .cast-item:hover .cast-image img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 /* פרטי השחקן */
 .cast-info {
-  padding: 12px;
+  padding: 15px 12px;
+  background-color: #000000;
+  text-align: center;
 }
 
 .cast-actor-name {
-  color: white;
-  font-weight: 500;
+  color: #ffffff;
+  font-weight: 600;
   font-size: 14px;
   line-height: 1.3;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .cast-character-name {
-  color: #999;
+  color: #888888;
   font-size: 12px;
-  line-height: 1.3;
+  line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Cast Container */
-.cast-container {
+/* Cast List - Horizontal Layout */
+.cast-list {
   display: flex;
-  gap: 16px;
+  gap: 0;
   overflow-x: auto;
-  padding: 20px 0;
+  padding: 15px 0 20px 0;
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #444444 #000000;
 }
 
-.cast-container::-webkit-scrollbar {
+.cast-list::-webkit-scrollbar {
   height: 8px;
 }
 
-.cast-container::-webkit-scrollbar-track {
-  background: #1a1a1a;
+.cast-list::-webkit-scrollbar-track {
+  background: #000000;
   border-radius: 4px;
 }
 
-.cast-container::-webkit-scrollbar-thumb {
-  background: #444;
+.cast-list::-webkit-scrollbar-thumb {
+  background: #444444;
   border-radius: 4px;
+  border: 1px solid #222222;
 }
 
-.cast-container::-webkit-scrollbar-thumb:hover {
-  background: #666;
+.cast-list::-webkit-scrollbar-thumb:hover {
+  background: #666666;
 }
 
-/* Cast Section */
+/* Cast Section - Dark Container */
 .cast-section {
-  background-color: #000;
-  padding: 40px 20px;
-  min-height: 100vh;
+  background: linear-gradient(135deg, #000000 0%, #111111 100%);
+  padding: 20px;
+  border-radius: 0 0 0 20px;
+  border-top: 1px solid #333333;
 }
 
 .cast-title {
-  color: white;
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 8px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Loading, Error and Empty States */
+.cast-loading, .cast-error, .cast-empty {
+  color: #666666;
+  font-style: italic;
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #111111, #000000);
+  border: 1px solid #333333;
+  border-radius: 12px;
+  font-size: 14px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-.cast-subtitle {
-  color: #999;
-  font-size: 16px;
-  margin-bottom: 32px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+.cast-loading {
+  animation: darkPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes darkPulse {
+  from { 
+    opacity: 0.4;
+    background: linear-gradient(135deg, #000000, #111111);
+  }
+  to { 
+    opacity: 0.8;
+    background: linear-gradient(135deg, #111111, #222222);
+  }
+}
+
+.cast-error {
+  color: #ff6b6b;
+  border-color: #ff6b6b33;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .cast-item {
-    width: 140px;
+    width: 120px;
+    margin-right: 12px;
   }
   
-  .cast-container {
-    gap: 12px;
-    padding: 16px 0;
+  .cast-image {
+    height: 140px;
   }
   
-  .cast-section {
-    padding: 24px 16px;
+  .cast-info {
+    padding: 12px 8px;
+  }
+  
+  .cast-actor-name {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  
+  .cast-character-name {
+    font-size: 11px;
   }
   
   .cast-title {
-    font-size: 24px;
+    font-size: 16px;
+    margin-bottom: 12px;
   }
   
-  .cast-subtitle {
-    font-size: 14px;
-    margin-bottom: 24px;
+  .cast-section {
+    padding: 15px;
   }
 }
 
 @media (max-width: 480px) {
   .cast-item {
-    width: 120px;
+    width: 100px;
+    margin-right: 10px;
+  }
+  
+  .cast-image {
+    height: 120px;
   }
   
   .cast-info {
-    padding: 8px;
+    padding: 10px 6px;
   }
   
   .cast-actor-name {
-    font-size: 13px;
+    font-size: 12px;
   }
   
   .cast-character-name {
-    font-size: 11px;
+    font-size: 10px;
+  }
+  
+  .cast-title {
+    font-size: 14px;
   }
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 import '../styles/CastItem.css'
 export default function CastItem(props) {
-  return (
-  <div className='cast-item' onClick={props.onClick}>
+return (
+  <div className='cast-item'>
       <div className='cast-image'>
         <img src={props.image} alt={props.name} />
       </div>
@@ -13,5 +13,5 @@ export default function CastItem(props) {
         )}
       </div>
     </div>
-  )
+)
 }

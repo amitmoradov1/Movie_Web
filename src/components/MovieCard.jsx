@@ -1,7 +1,7 @@
 import React from 'react';
 import Detail from './DetailMovie';
 import { IMG_BASE } from '../services/api';
-
+import '../styles/App.css';
 
 const MovieCard = ({ movie, onClick }) => {
   return (
