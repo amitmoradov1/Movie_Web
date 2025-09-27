@@ -8,7 +8,7 @@ import CastItem from '../components/CastItem';
 //import { IoMdThumbsUp } from "react-icons/io";
 import CastList from '../components/CastList';
 import MovieCard from '../components/MovieCard';
-import { fetchPopular, fetchNowPlayingMovies } from '../services/api';
+import { fetchPopular, fetchNowPlayingMovies, fetchUpcomingMovies } from '../services/api';
 import Gallery from './Gallery';
 
 
@@ -35,7 +35,7 @@ const MovieModel = ({ movie, onClose }) => {
 
     async function loadMovies() {
         try {
-          const data = await fetchNowPlayingMovies();
+          const data = await fetchUpcomingMovies();
           if (filteredPictures.length < 5){
             setAllMovies(data.results); // שמור את כל הסרטים
             setFilteredPictures(data.results); // הצג אותם מיד

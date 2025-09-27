@@ -100,12 +100,12 @@ export function fetchMoviesByGenre(genreId, page = 1) {
 // ======= פונקציות עזר =======
 
 // פונקציה לקבלת כל הסרטים (עם pagination)
-export async function fetchAllMovies(maxPages = 5) {
+export async function fetchAllMovies(maxPages = 10) {
   const allMovies = [];
   
   for (let page = 1; page <= maxPages; page++) {
     try {
-      const response = await fetchPopularMovies(page);
+      const response = await fetchPopular();
       allMovies.push(...response.results);
       
       // אם אין עוד עמודים
