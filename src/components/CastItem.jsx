@@ -1,15 +1,15 @@
 import React from 'react'
-import '../styles/CastItem.css'
+import style from '../styles/CastItem.module.css'
 export default function CastItem(props) {
 return (
-  <div className='cast-item'>
-      <div className='cast-image'>
+  <div className={style['cast-item']}>
+      <div className={style['cast-image']}>
         <img src={props.image} alt={props.name} />
       </div>
-      <div className='cast-info'>
-        <div className='cast-actor-name'>{props.name}</div>
+      <div className={style['cast-info']}>
+        <div className={style['cast-actorName']}>{props.name}</div>
         {props.character && (
-          <div className='cast-character-name'>{props.character}</div>
+          <div className={style['cast-characterName']}>{props.character}</div>
         )}
       </div>
     </div>
