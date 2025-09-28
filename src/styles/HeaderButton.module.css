@@ -1,0 +1,271 @@
+.header-buttons-wrapper {
+display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 100%;
+  direction: ltr; 
+}
+
+/* HeaderButton Container */
+.header-button-container {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+/* HeaderButton Base Style */
+.header-button {
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border-radius: 25px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 0.3px;
+  outline: none;
+  overflow: hidden;
+  margin-right: auto;
+}
+
+/* Hover Effect */
+.header-button:hover {
+  background: rgba(1, 210, 119, 0.15);
+  color: #f8f8f8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(215, 17, 17, 0.2);
+}
+
+/* Active State */
+.header-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(215, 17, 17, 0.3);
+}
+
+/* Focus State */
+.header-button:focus {
+  box-shadow: 0 0 0 3px rgba(222, 14, 21, 0.4);
+}
+
+/* Shine Effect on Hover */
+.header-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.header-button:hover::before {
+  left: 100%;
+}
+
+/* Ripple Effect */
+.header-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(206, 4, 4, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.header-button:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Different Button Variants */
+
+/* Primary Button */
+.header-button.primary {
+  background: linear-gradient(135deg, #de0a1c 0%, #d30c0c 100%);
+  color: #032541;
+  font-weight: 700;
+}
+
+.header-button.primary:hover {
+  background: linear-gradient(135deg, #d60a0a 0%, #ca1025 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(208, 9, 28, 0.4);
+}
+
+/* Secondary Button */
+.header-button.secondary {
+  background: transparent;
+  border: 2px solid #d7122d;
+  color: #cd2121;
+}
+
+.header-button.secondary:hover {
+  background: #d70913;
+  color: #032541;
+  border-color: #df0c16;
+}
+
+/* Outline Button */
+.header-button.outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.header-button.outline:hover {
+  border-color: #d20119;
+  background: rgba(1, 210, 119, 0.1);
+  color: #ce0c0c;
+}
+
+/* Ghost Button */
+.header-button.ghost {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.header-button.ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Danger Button */
+.header-button.danger {
+  background: transparent;
+  color: #ff4757;
+}
+
+.header-button.danger:hover {
+  background: rgba(255, 71, 87, 0.1);
+  color: #ff3742;
+  box-shadow: 0 8px 20px rgba(255, 71, 87, 0.2);
+}
+
+/* Warning Button */
+.header-button.warning {
+  background: transparent;
+  color: #ffa502;
+}
+
+.header-button.warning:hover {
+  background: rgba(255, 165, 2, 0.1);
+  color: #ff9500;
+  box-shadow: 0 8px 20px rgba(255, 165, 2, 0.2);
+}
+
+/* Success Button */
+.header-button.success {
+  background: transparent;
+  color: #2ed573;
+}
+
+.header-button.success:hover {
+  background: rgba(46, 213, 115, 0.1);
+  color: #e30b16;
+  box-shadow: 0 8px 20px rgba(46, 213, 115, 0.2);
+}
+
+/* Disabled State */
+.header-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.header-button:disabled:hover {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Loading State */
+.header-button.loading {
+  position: relative;
+  color: transparent;
+}
+
+.header-button.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid #01d277;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Size Variants */
+.header-button.small {
+  padding: 8px 16px;
+  font-size: 14px;
+  min-height: 36px;
+}
+
+.header-button.large {
+  padding: 16px 32px;
+  font-size: 18px;
+  min-height: 52px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .header-button {
+    padding: 10px 20px;
+    font-size: 15px;
+    min-height: 40px;
+  }
+  
+  .header-button.small {
+    padding: 6px 12px;
+    font-size: 13px;
+    min-height: 32px;
+  }
+  
+  .header-button.large {
+    padding: 12px 24px;
+    font-size: 16px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-height: 36px;
+  }
+  
+  .header-button-container {
+    margin: 0 2px;
+  }
+}

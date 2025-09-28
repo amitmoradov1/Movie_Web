@@ -64,7 +64,14 @@ h1 {
   transition: all 0.3s ease;
 }
 
-
+.buttons-wrapper {
+display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 100%;
+  direction: ltr; 
+}
 
 .search-btn {
   position: absolute;

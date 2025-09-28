@@ -4,12 +4,13 @@ import Gallery from './pages/Gallery';
 import MovieModel from './pages/MovieModel';
 //import { movies } from './data/Movies';
 import './styles/App.css';
-import { fetchPopular,  fetchTopRatedMovies} from './services/api';
+import { fetchPopular,  fetchTopRatedMovies, fetchNowPlayingMovies} from './services/api';
 import Loggin from './pages/Loggin';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Signup from './pages/Signup';
 import Avater from './components/Avater';
 import CastItem from './components/CastItem';
+import HeaderButton from './components/HeaderButton';
 //import Avater from './components/Avater';
 
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
   const [allMovies, setAllMovies] = useState([]);
 
 useEffect(() => {
-  async function loadMovies() {
+  async function loadPopular() {
     try {
       const data = await fetchPopular();
       setAllMovies(data.results); // שמור את כל הסרטים
@@ -35,8 +36,47 @@ useEffect(() => {
       console.error(err);
     }
   }
-  loadMovies();
+  loadPopular();
 }, []);
+
+
+const loadPopular = async () => {
+  try {
+    const data = await fetchPopular();
+    setAllMovies([]); 
+    setFilteredPictures([]); 
+    setAllMovies(data.results); 
+    setFilteredPictures(data.results); 
+  } catch (err) {
+    // אפשר להציג הודעת שגיאה
+    console.error(err);
+  }
+}
+const loadtopMovie = async () => {
+  try {
+    const data = await fetchTopRatedMovies();
+    setAllMovies([]); 
+    setFilteredPictures([]); 
+    setAllMovies(data.results); 
+    setFilteredPictures(data.results); 
+  } catch (err) {
+    // אפשר להציג הודעת שגיאה
+    console.error(err);
+  }
+}
+
+const loadNowPlaying = async () => {
+  try {
+    const data = await fetchNowPlayingMovies();
+    setAllMovies([]); 
+    setFilteredPictures([]); 
+    setAllMovies(data.results); 
+    setFilteredPictures(data.results); 
+  } catch (err) {
+    // אפשר להציג הודעת שגיאה
+    console.error(err);
+  }
+}
 
 //   useEffect(() => {
 //   setFilteredPictures(movies);
@@ -87,7 +127,16 @@ useEffect(() => {
     </div>} />
 
    <Route path="/gallery" element={
+    
     <div className="app ">
+      <header>
+        {/* <Avater /> */}
+      <div className="buttons-wrapper">
+        <HeaderButton func={() => {loadtopMovie(1)}} name={"Top Movie"}/>
+        <HeaderButton func={() => {loadPopular()}} name={"Popular"}/>
+        <HeaderButton func={() => {loadNowPlaying()}} name={"New Movie"}/>
+    </div>
+        </header>
       <div className="container">
         {isShowingMovie &&
         <header>

@@ -13,12 +13,9 @@ async function http(path, params = {}) {
   return res.json();
 }
 
-// ======= פונקציות קיימות =======
 export function fetchPopular() {
   return http("/movie/popular", { language: "en-US", page: 1 });
 }
-
-// ======= פונקציות חדשות =======
 
 
 // קבלת סרטים מובילים

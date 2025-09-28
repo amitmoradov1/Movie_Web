@@ -3,12 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { IMG_BASE } from '../services/api';
 import Detail from '../components/DetailMovie';
 import { useNavigate } from 'react-router-dom';
-import '../styles/MovieModel.css';
-import CastItem from '../components/CastItem';
+import style from '../styles/MovieModel.module.css';
 //import { IoMdThumbsUp } from "react-icons/io";
 import CastList from '../components/CastList';
 import MovieCard from '../components/MovieCard';
-import { fetchPopular, fetchNowPlayingMovies, fetchUpcomingMovies } from '../services/api';
+import { fetchPopular, fetchNowPlayingMovies, fetchUpcomingMovies, fetchSimilarMovies } from '../services/api';
 import Gallery from './Gallery';
 
 
@@ -35,7 +34,7 @@ const MovieModel = ({ movie, onClose }) => {
 
     async function loadMovies() {
         try {
-          const data = await fetchUpcomingMovies();
+          const data = await fetchSimilarMovies(movie.id);
           if (filteredPictures.length < 5){
             setAllMovies(data.results); // שמור את כל הסרטים
             setFilteredPictures(data.results); // הצג אותם מיד
@@ -68,21 +67,21 @@ const MovieModel = ({ movie, onClose }) => {
  if (!movie) return null;
 
 return (
-  <div className="movie-modal">
-    <button className="exit-button" onClick={handleClose}>✕</button>
+  <div className={style['movie-modal']}>
+    <button className={style["exit-button"]} onClick={handleClose}>✕</button>
     
-    <div className="content-wrapper">
+    <div className={style["content-wrapper"]}>
       <img
-        className="poster-image"
+        className={style["poster-image"]}
         src={movie.poster_path ? IMG_BASE + movie.poster_path : "/default.jpg"}
         alt={movie.title}
-        style={{ cursor: "pointer" }}
+        style={{ cursor: style["pointer"] }}
         onClick={() => window.open(`https://www.themoviedb.org/movie/${movie.id}`, "_blank", "noopener,noreferrer")}
       />
       
-      <div className="details-section">
+      <div className={style["details-section"]}>
         <h2>{movie.name}</h2>
-        <Detail className="movie-description" movie={movie.overview}/>
+        <Detail className={style["movie-description"]} movie={movie.overview}/>
         <div>
           <CastList movie={movie}></CastList>
         </div>
