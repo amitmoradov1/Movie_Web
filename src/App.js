@@ -162,13 +162,7 @@ const loadNowPlaying = async () => {
         onClose={handleCloseModal}
       /> 
      </div>
-          {/* <CastItem 
-  image="actor.jpg" 
-  name="ריאן גוסלינג" 
-  character="נהג" 
-  onClick={() => console.log('ריאן גוסלינג')}
-/> */}
-     </div>
+  </div>
       }/>
       
       </Routes>
