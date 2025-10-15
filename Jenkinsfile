@@ -12,7 +12,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:18-alpine'
-                    
+                    reUseNode true
                 }
 
             }
@@ -24,6 +24,15 @@ pipeline {
                 ls -la
                 '''
 
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh'''
+                npm install netlify-cli -g
+                netlify --version
+                '''
             }
         }
     }
