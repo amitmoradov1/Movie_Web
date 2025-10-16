@@ -6,7 +6,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 🔹 התחברות ל-MongoDB Atlas או מקומית
 mongoose.connect("mongodb://localhost:27017/movieWeb", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
