@@ -19,16 +19,37 @@ const userSchema = new mongoose.Schema({
     password: String,
 });
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema, "Users");
 
-app.post("/login", async (req, res) => {
+app.post("/signup", async (req, res) => {
   const { username, password } = req.body;
 
+ 
   try {
-    const user = await User.findOne({ username, password });
-    if (!user) return res.status(401).json({ message: "User not found or wrong password" });
-    res.json({ message: "Login successful", user });
+    const newUser = new User({ username, password });
+    await newUser.save();
+
+    console.log("New user added:", newUser);
+    res.status(201).json({ message: "Signup successful", user: newUser });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error(" Error during signup:", err);
+    res.status(500).json({ message: "Server error" });
   }
 });
+
+app.post("/loggin", async (req, res) => {
+    const { username, password } = req.body;
+  try {
+    const user = await User.findOne({username, password});
+    if (user) {
+      res.status(200).json({ message: "Login successful", user });
+    } else {
+      res.status(401).json({ message: "Invalid credentials" });
+    }
+  } catch (err) {
+    console.error("Error fetching users:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+app.listen(4000, () => console.log("Server running on port 4000"));

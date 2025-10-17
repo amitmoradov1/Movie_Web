@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../styles/App.css'
 import { Link,useNavigate } from 'react-router-dom';
-import usersData from '../data/Users.json';
+//import usersData from '../data/Users.json';
 
 export default function Loggin(props) {
 
@@ -10,11 +10,19 @@ export default function Loggin(props) {
 
     const navigate = useNavigate();
 
-    const checkLogin = () => {
-        if (usersData.find(u => u.user === name && u.password === password)) {
-            alert('Login successful');
+    const checkLogin = async () => {
+
+       try {
+        const res = await fetch("http://localhost:4000/loggin", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username: name, password }),
+        });
+        
+        if (res.ok) {
             props.show.setIsShowingLogin(false);
-           props.show.setIsShowingMovie(true);
+            props.show.setIsShowingMovie(true);
+            alert('Welcome ' + name);
             navigate('/gallery');
 
         }
@@ -22,6 +30,10 @@ export default function Loggin(props) {
             alert('Login failed');
             setName('');
             setPassword('');
+        }
+        } catch (err) {
+            console.log("Error:", err);
+            alert('An error occurred during login');
         }
     }
 

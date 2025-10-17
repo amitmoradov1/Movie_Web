@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/App.css'
-import usersData from '../data/Users.json';
 import { useState } from 'react';
 
 export default function Signup() {
@@ -11,81 +10,87 @@ export default function Signup() {
     const againPasswordRef = React.createRef(null);
 
     const [successMessage, setSuccessMessage] = useState('');
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
 
 
-    const [users,setUsers] = useState(usersData);
 
     const navigate = useNavigate();
-    console.log(users);
-    const checkDetails = () => {
+    const checkDetails = async () => {
         const username = usernameRef.current.value;
         const password = passwordRef.current.value;
         const againPassword = againPasswordRef.current.value;
 
         if (password !== againPassword) {
             setErrorMessage('Passwords do not match');
-            return false;
-        }
-        const exists = users.some(u => u.user === username);
-        if (exists){
-            setErrorMessage("The user is exist please change name of user");
+            console.error("Passwords do not match");
             return false;
         }
 
-        const newUser = { user: username, password: password };
-        const updatedUsers = [...users, newUser];
-        localStorage.setItem('users', JSON.stringify(updatedUsers));
-        setUsers(updatedUsers);
-        setSuccessMessage("Signup successful!");
-        console.log(updatedUsers);
-        return true;
-        // try {
-        //     const res = await fetch("http://localhost:4000/userData", {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify(newUser),
-        //     });
-
-        //     if (!res.ok) {
-        //     setErrorMessage("שגיאה בשמירה לשרת");
-        //     return false;
-        //     }
-
-        //     setUsers(prevUsers => [...prevUsers, newUser]);
-        //     setSuccessMessage("Signup successful!");
-        //     return true;
-        // }
-        //     catch (err) {
-        //         console.error("Error:", err);
-        //         setErrorMessage("תקלה בהתחברות לשרת");
-        //         return false;
-        //     }
+        // const newUser = { user: username, password: password };
+        // const updatedUsers = [...users, newUser];
+        // localStorage.setItem('users', JSON.stringify(updatedUsers));
+        // setUsers(updatedUsers);
+        // setSuccessMessage("Signup successful!");
+        // console.log(updatedUsers);
+        // return true;
+         try {
+        const res = await fetch("http://localhost:4000/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        });
         
+
+            if (!res.ok) {
+            setErrorMessage("Failed to signup");
+            setShowErrorMessage(true);
+            console.log("Signup failed with status:", res.status);
+            return false;
+            }
+            setShowSuccessMessage(true);
+            setSuccessMessage("Signup successful");
+            return true;
+        }
+            catch (err) {
+                console.log("Error:", err);
+                setErrorMessage("An error occurred during signup");
+                setShowErrorMessage(true);
+                console.error("Signup error:", err);
+                return false;
+            }
     }
 
-    const  createUser = () => {
+    const  createUser = async () => {
         setSuccessMessage('');
         setErrorMessage('');
-        if(checkDetails())
-            navigate('/');
+        setShowSuccessMessage(false);
+        setShowErrorMessage(false);
+        const ok = await checkDetails(); 
+        console.log(`ok = ${ok}`);
+        // i want to wait 3 seconds and then remove the message
+            setTimeout(() => {
+            setShowSuccessMessage(false);
+            setShowErrorMessage(false);
+            }, 3000);
     }
 
   return (
     <div className='login-container center'>
         <h2 >הרשמה</h2>
         <p>please fill in the details to create an account.</p>
-          {/* {successMessage && (
-            <div className="mb-6 p-4 bg-green-500/20 border border-green-400/30 rounded-xl text-green-100 text-center">
+          {showSuccessMessage && (
+            <div className="success-popup">
               {successMessage}
               
-            </div> )} */}
+            </div> )}
 
-                {/* {errorMessage && (
-            <div className=" mb-6 p-4 bg-red-500/20 border border-red-400/30 rounded-xl text-red-100 text-center">
+                {showErrorMessage && (
+            <div className="error-popup">
               {errorMessage}
               
-            </div> )} */}
+            </div> )}
         <input ref={usernameRef} className='info-label' type="text" placeholder="Username" />
         <div>
         <input ref={passwordRef} className='info-label' type="password" placeholder="Password" />
