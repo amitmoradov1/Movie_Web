@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import '../styles/App.css'
 import { Link,useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 //import usersData from '../data/Users.json';
 
 export default function Loggin(props) {
 
     const [name, setName] = useState('');
     const [password,setPassword] = useState('');
+    const { userId, setUserId } = useContext(UserContext);
 
     const navigate = useNavigate();
 
@@ -20,9 +22,14 @@ export default function Loggin(props) {
         });
         
         if (res.ok) {
+            const data = await res.json();
+            console.log("Login successful:", data);
+            setUserId(data.user._id);
+            console.log("Logged in user ID:", userId);
             props.show.setIsShowingLogin(false);
             props.show.setIsShowingMovie(true);
             alert('Welcome ' + name);
+
             navigate('/gallery');
 
         }
