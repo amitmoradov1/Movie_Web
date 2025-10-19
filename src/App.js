@@ -11,7 +11,13 @@ import Signup from './pages/Signup';
 import Avater from './components/Avater';
 import CastItem from './components/CastItem';
 import HeaderButton from './components/HeaderButton';
-//import Avater from './components/Avater';
+
+import Avatar from '@mui/material/Avatar';
+import IconButton from '@mui/material/IconButton';
+import Dialog from '@mui/material/Dialog';
+import { Button } from '@mui/material';
+
+
 
 const App = () => {
   const [filteredPictures, setFilteredPictures] = useState([]);
@@ -24,6 +30,8 @@ const App = () => {
   const navigate = useNavigate();
 
   const [allMovies, setAllMovies] = useState([]);
+
+  const [isShowingProfile, setIsShowingProfile] = useState(false);
 
 useEffect(() => {
   async function loadPopular() {
@@ -130,7 +138,12 @@ const loadNowPlaying = async () => {
     
     <div className="app ">
       <header>
-        {/* <Avater /> */}
+        <IconButton onClick={() => setIsShowingProfile(!isShowingProfile)}>
+        <Avatar sx={{ bgcolor: "red"}}>N</Avatar>
+        {isShowingProfile && <div className="profile-popup">
+          <HeaderButton func={() => {}} name={"My Profile"}/>
+          </div>}
+        </IconButton>
       <div className="buttons-wrapper">
         <HeaderButton func={() => {loadtopMovie(1)}} name={"Top Movie"}/>
         <HeaderButton func={() => {loadPopular()}} name={"Popular"}/>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/App.css'
 import { useState } from 'react';
@@ -8,6 +8,7 @@ export default function Signup() {
     const usernameRef = React.createRef(null);
     const passwordRef = React.createRef(null)
     const againPasswordRef = React.createRef(null);
+    const email = createRef(null);
 
     const [successMessage, setSuccessMessage] = useState('');
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -21,10 +22,22 @@ export default function Signup() {
         const username = usernameRef.current.value;
         const password = passwordRef.current.value;
         const againPassword = againPasswordRef.current.value;
+        const emailValue = email.current.value;
 
+        if (!username || !password || !againPassword || !emailValue) {
+          setErrorMessage('All fields are required');
+          setShowErrorMessage(true);
+          return false;
+    }
         if (password !== againPassword) {
             setErrorMessage('Passwords do not match');
             console.error("Passwords do not match");
+            return false;
+        }
+
+        if (emailValue.trim() === '' || !emailValue.includes('@')) {
+            setErrorMessage('Invalid email address');
+            console.error("Invalid email address");
             return false;
         }
 
@@ -39,19 +52,23 @@ export default function Signup() {
         const res = await fetch("http://localhost:4000/signup", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username, password }),
+          body: JSON.stringify({ username ,password, email: emailValue }),
         });
-        
+          const data = await res.json();
 
-            if (!res.ok) {
+            if (!res.ok ) {
             setErrorMessage("Failed to signup");
             setShowErrorMessage(true);
             console.log("Signup failed with status:", res.status);
             return false;
             }
+
+            if (res.status === 201) {
             setShowSuccessMessage(true);
             setSuccessMessage("Signup successful");
             return true;
+            }
+          
         }
             catch (err) {
                 console.log("Error:", err);
@@ -92,6 +109,9 @@ export default function Signup() {
               
             </div> )}
         <input ref={usernameRef} className='info-label' type="text" placeholder="Username" />
+        <div>
+          <input ref={email} type='email' className='info-label' placeholder='Email' />
+        </div>
         <div>
         <input ref={passwordRef} className='info-label' type="password" placeholder="Password" />
         </div>

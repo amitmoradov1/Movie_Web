@@ -1,5 +1,7 @@
+// THIS COMMENT IS NOT USED BY THE CODE. I TOOKE FROM THE INTERNET
+
 import React from 'react'
-import '../styles/Avatar.css'
+import '../styles/Avatar.Module.css';
 export default function Avatar(props) {
   return (
     <div className="profile-item">

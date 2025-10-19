@@ -95,6 +95,21 @@ display: flex;
   margin-top: 30px;
 }
 
+.profile-popup {
+  position: absolute;
+  top: 80px;                     /* מתחת ל־Avatar */
+  right: 10px;
+  width: 320px;
+  background: rgba(30, 30, 30, 0.98);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  color: white;
+  animation: slideDown 0.25s ease-out;
+  z-index: 200;
+  backdrop-filter: blur(12px);
+}
+
 .picture-card {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;

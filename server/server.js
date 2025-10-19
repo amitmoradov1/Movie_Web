@@ -16,17 +16,25 @@ mongoose.connect("mongodb://localhost:27017/movieWeb", {
 
 const userSchema = new mongoose.Schema({
     username: String,
-    password: String,
+    password: { type: String, required: true },
+    email: { type: String, required: true }
 });
 
 const User = mongoose.model("User", userSchema, "Users");
 
 app.post("/signup", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, email } = req.body;
 
  
   try {
-    const newUser = new User({ username, password });
+      const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return res.status(400).json({ 
+        message: "The email already in use" 
+      });
+    }
+    const newUser = new User({ username, password , email});
     await newUser.save();
 
     console.log("New user added:", newUser);
@@ -38,7 +46,7 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/loggin", async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, email } = req.body;
   try {
     const user = await User.findOne({username, password});
     if (user) {

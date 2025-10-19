@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useState} from 'react';
 import MovieCard from '../components/MovieCard';
 import '../styles/App.css';
 
 const Gallery = ({ movie, onPictureClick }) => {
+
   if (movie.length === 0) {
     return (
       <div className="no-results">
