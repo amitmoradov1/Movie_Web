@@ -416,7 +416,7 @@ profile-popup button.exit {
 }
 
 
-.login-btn {
+/* .login-btn {
   background: linear-gradient(135deg, #e8a839, #e1992e);
   color: #fff;
   font-size: 15px;
@@ -452,7 +452,7 @@ profile-popup button.exit {
   background: rgba(120, 42, 42, 0.95);
   border-radius: 15px;
   box-shadow: 0 15px 32px rgba(31, 38, 135, 0.37);
-}
+} */
 
 .success-popup {
   position: fixed;           /* יושב מעל כל המסך */

@@ -1,6 +1,6 @@
 import React, { createRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import '../styles/App.css'
+import style from '../styles/login.module.css';
 import { useState } from 'react';
 
 export default function Signup() {
@@ -94,33 +94,59 @@ export default function Signup() {
     }
 
   return (
-    <div className='login-container center'>
-        <h2 >הרשמה</h2>
-        <p>please fill in the details to create an account.</p>
-          {showSuccessMessage && (
-            <div className="success-popup">
-              {successMessage}
-              
-            </div> )}
+    <div className={style['login-page']}>
+      <div className={style['login-container']}>
+        <h2 className={style['card-title']}>הרשמה</h2>
+        <p style={{ color: '#ccc', marginBottom: '15px' }}>
+          אנא מלא את הפרטים כדי ליצור חשבון חדש
+        </p>
 
-                {showErrorMessage && (
-            <div className="error-popup">
-              {errorMessage}
-              
-            </div> )}
-        <input ref={usernameRef} className='info-label' type="text" placeholder="Username" />
-        <div>
-          <input ref={email} type='email' className='info-label' placeholder='Email' />
-        </div>
-        <div>
-        <input ref={passwordRef} className='info-label' type="password" placeholder="Password" />
-        </div>
-        <div>
-        <input ref={againPasswordRef} className='info-label' type="password" placeholder="Again password" />
-        </div>
-        <button className="login-btn" onClick={() => createUser()}>הרשמה</button>
-        <Link  to="/">חזרה</Link>
+        {showSuccessMessage && (
+          <div className="success-popup">{successMessage}</div>
+        )}
 
+        {showErrorMessage && (
+          <div className="error-popup">{errorMessage}</div>
+        )}
+
+        <input
+          ref={usernameRef}
+          className={style['login-input']}
+          type="text"
+          placeholder="Username"
+        />
+        <input
+          ref={email}
+          className={style['login-input']}
+          type="email"
+          placeholder="Email"
+        />
+        <input
+          ref={passwordRef}
+          className={style['login-input']}
+          type="password"
+          placeholder="Password"
+        />
+        <input
+          ref={againPasswordRef}
+          className={style['login-input']}
+          type="password"
+          placeholder="Again password"
+        />
+
+        <button className={style['login-btn']} onClick={checkDetails}>
+          הרשמה
+        </button>
+
+        <div className={style['login-footer']}>
+          <p>
+            כבר יש לך חשבון?{' '}
+            <Link to="/" className={style['signup-link']}>
+              התחבר
+            </Link>
+          </p>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
