@@ -19,6 +19,7 @@ import { Button } from '@mui/material';
 
 
 
+
 const App = () => {
   const [filteredPictures, setFilteredPictures] = useState([]);
   const [selectedPicture, setSelectedPicture] = useState(null);
@@ -140,8 +141,20 @@ const loadNowPlaying = async () => {
       <header>
         <IconButton onClick={() => setIsShowingProfile(!isShowingProfile)}>
         <Avatar sx={{ bgcolor: "red"}}>N</Avatar>
-        {isShowingProfile && <div className="profile-popup">
-          <HeaderButton func={() => {}} name={"My Profile"}/>
+        {isShowingProfile && <div className="profile-popup">      
+         <button onClick={ () => {navigate('gallery/setting')}}> settings </button>
+            <div>
+               <button onClick={ () => {navigate('gallery/help')}}>help</button>
+              </div>
+              <div>
+                  <button className='exit' onClick={() => { navigate('/');
+                    setIsShowingLogin(true);
+                    setIsShowingMovie(false);
+                    
+                  }}>exit</button>             
+                </div>
+ 
+
           </div>}
         </IconButton>
       <div className="buttons-wrapper">
@@ -177,9 +190,19 @@ const loadNowPlaying = async () => {
      </div>
   </div>
       }/>
-      
-      </Routes>
 
+        {/*TO DO: EDIT THIS PAGE*/ }
+       <Route path="/gallery/help" element={ 
+        <div>
+        <Dialog open={true} onClose={() => navigate('/gallery')}>
+          <div className="help-dialog">
+            <h2>Help & Support</h2>
+            <p>If you need assistance, please contact our support team at support@webmovie.co.il</p>
+          </div>
+        </Dialog>
+        </div>
+          }/>
+</Routes>
   );
 };
 

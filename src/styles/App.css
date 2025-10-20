@@ -24,7 +24,7 @@ grid-row-gap: 0px;
 .div2 { grid-area: 1 / 1 / 6 / 2; }
 
 .container {
-  max-width: 1200px;
+  max-width: 995px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -97,17 +97,73 @@ display: flex;
 
 .profile-popup {
   position: absolute;
-  top: 80px;                     /* מתחת ל־Avatar */
-  right: 10px;
-  width: 320px;
-  background: rgba(30, 30, 30, 0.98);
+  top: 60px; /* מתחת לאווטאר */
+  right: 0;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(78, 65, 65, 0.1);
   border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  width: 200px;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  backdrop-filter: blur(15px);
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+/* חץ קטן מעל התפריט */
+.profile-popup::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid rgba(20, 20, 20, 0.95);
+  filter: drop-shadow(0 -1px 1px rgba(255, 255, 255, 0.1));
+}
+
+.profile-popup button {
+  background: none;
+  border: none;
   color: white;
-  animation: slideDown 0.25s ease-out;
-  z-index: 200;
-  backdrop-filter: blur(12px);
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.profile-popup button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.00);
+}
+
+.profile-popup button.exit {
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+profile-popup button.exit {
+  color: #ff4d4d;
+}
+.profile-popup button.exit:hover {
+  background: rgba(255, 0, 0, 0.2);
 }
 
 .picture-card {
